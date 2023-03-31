@@ -1,0 +1,31 @@
+import java.util.*;
+
+public class StudentScoreCalculator {
+public static void main(String[] args) {
+Map&lt;Integer, List&lt;Integer&gt;&gt; studentScores = new HashMap&lt;&gt;();
+studentScores.put(1, Arrays.asList(10, 20, 10));
+studentScores.put(2, Arrays.asList(10, 20, 11));
+
+Map&lt;Integer, Integer&gt; studentTotalScores = new HashMap&lt;&gt;();
+
+for (Map.Entry&lt;Integer, List&lt;Integer&gt;&gt; entry : studentScores.entrySet()) {
+int studentId = entry.getKey();
+List&lt;Integer&gt; scores = entry.getValue();
+int totalScore = 0;
+
+for (int score : scores) {
+totalScore += score;
+}
+
+studentTotalScores.put(studentId, totalScore);
+
+}
+
+System.out.println(&quot;Student ID\tTotal Score&quot;);
+for (Map.Entry&lt;Integer, Integer&gt; entry : studentTotalScores.entrySet()) {
+int studentId = entry.getKey();
+int totalScore = entry.getValue();
+System.out.println(studentId + &quot;\t\t&quot; + totalScore);
+}
+}
+}
